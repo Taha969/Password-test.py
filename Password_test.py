@@ -11,4 +11,5 @@ while True:
         print("Strong password")
         break
     else:
+
         print("\n Password is weak, enter another one ")
