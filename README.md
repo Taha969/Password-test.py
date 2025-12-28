@@ -44,7 +44,11 @@ $	Asserts the end of the string.
 
 # Examples:
 Password	Status	Reason
+
 lowUP#12	✅ Strong	Matches the exact order (lower, upper, symbol, digit).
+
 12lowUP#	❌ Weak	Wrong order (starts with numbers).
+
 lowUP12	❌ Weak	Missing special characters.
+
 LOWlow#12	❌ Weak	Wrong order (starts with uppercase).
