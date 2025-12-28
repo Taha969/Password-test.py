@@ -32,16 +32,17 @@ $	Asserts the end of the string.
 
 # 🚀 How to Use
 
-    Prerequisites: Ensure you have Python 3.x installed.
+   Prerequisites: Ensure you have Python 3.x installed.
 
-    Run the script:
+   Run the script:
+   
     Bash
 
     python your_script_name.py
 
-    Input: Enter a password when prompted. The script will keep asking until a "Strong" password is provided.
+   Input: Enter a password when prompted. The script will keep asking until a "Strong" password is provided.
 
-Examples:
+# Examples:
 Password	Status	Reason
 lowUP#12	✅ Strong	Matches the exact order (lower, upper, symbol, digit).
 12lowUP#	❌ Weak	Wrong order (starts with numbers).
