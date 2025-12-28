@@ -1,4 +1,4 @@
-Password Strength Checker 🔒
+# Password Strength Checker 🔒
 
 A simple Python utility that validates password strength based on a specific character sequence using Regular Expressions (Regex).
 📝 Description
@@ -8,15 +8,15 @@ Password Criteria:
 
 To be considered "Strong" by this script, the password must follow this exact sequence:
 
-    Lowercase letters (a-z) at the beginning.
+ Lowercase letters (a-z) at the beginning.
 
-    Uppercase letters (A-Z) following the lowercase.
+ Uppercase letters (A-Z) following the lowercase.
 
-    Special characters (!@#$^%) following the uppercase.
+ Special characters (!@#$^%) following the uppercase.
 
-    Digits (0-9) at the end.
+ Digits (0-9) at the end.
 
-🔍 Regex Breakdown
+#🔍 Regex Breakdown
 
 The script uses the following pattern:
 
@@ -28,7 +28,7 @@ Symbol	Description
 [!@#$^%]+	One or more special characters from the set.
 [0-9]+	One or more digits (0-9).
 $	Asserts the end of the string.
-🚀 How to Use
+#🚀 How to Use
 
     Prerequisites: Ensure you have Python 3.x installed.
 
