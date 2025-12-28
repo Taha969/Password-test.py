@@ -1,71 +1,47 @@
-Password Strength Checker
+Password Strength Checker 🔒
 
-Overview
+A simple Python utility that validates password strength based on a specific character sequence using Regular Expressions (Regex).
+📝 Description
 
-This is a simple Python script that uses the re (Regular Expressions) library to validate a user-entered password and determine if it is strong or weak based on a specific criteria. The program will continue to prompt the user for input until a strong password is provided.
+This script prompts the user to enter a password and checks it against a predefined security pattern. Unlike general checkers, this script enforces a strict order of character types.
+Password Criteria:
 
-Requirements
+To be considered "Strong" by this script, the password must follow this exact sequence:
 
-    Python 3 or newer.
+    Lowercase letters (a-z) at the beginning.
 
-Password Strength Criteria
+    Uppercase letters (A-Z) following the lowercase.
 
-The script defines a "strong" password as one that strictly adheres to the following regular expression pattern:
+    Special characters (!@#$^%) following the uppercase.
+
+    Digits (0-9) at the end.
+
+🔍 Regex Breakdown
+
+The script uses the following pattern:
+
 ^[a-z]+[A-Z]+[!@#$^%]+[0-9]+$
+Symbol	Description
+^	Asserts the start of the string.
+[a-z]+	One or more lowercase English letters.
+[A-Z]+	One or more uppercase English letters.
+[!@#$^%]+	One or more special characters from the set.
+[0-9]+	One or more digits (0-9).
+$	Asserts the end of the string.
+🚀 How to Use
 
-Based on this pattern, a strong password must follow this precise and mandatory sequence of four consecutive groups:
+    Prerequisites: Ensure you have Python 3.x installed.
 
-    Starts with: Lowercase letters (a-z).
+    Run the script:
+    Bash
 
-    Immediately followed by: Uppercase letters (A-Z).
+    python your_script_name.py
 
-    Immediately followed by: Special symbols (!@#$^%).
+    Input: Enter a password when prompted. The script will keep asking until a "Strong" password is provided.
 
-    Ends with: Digits (0-9).
-
-Important Note: This pattern requires that each group of characters, symbols, and digits appears at least once and in the exact order specified, with no overlap or other characters in between the groups.
-
-Examples
-
-Password	Strong / Weak	Reason
-helloWORLD!@#123	Strong	Matches the pattern: lowercase + uppercase + symbols + digits.
-Hello123!	Weak	Incorrect order (starts with uppercase) and does not strictly follow the four groups.
-hW!1	Strong	Matches the pattern: h (lower) + W (upper) + ! (symbol) + 1 (digit).
-
-How to Run
-
-    Save the code below into a file named (for example) password_checker.py.
-
-    Open your Terminal or Command Prompt and navigate to the folder where you saved the file.
-
-    Run the script using the following command:
-
-Bash
-
-python password_checker.py
-
-    The program will ask you to enter a password:
-
-    Enter your password: 
-
-    Enter a password and press Enter. The program will loop until you provide a password that matches the strong password criteria.
-
-Code
-
-Python
-
-import re
-
-def is_strong_password(pwd):
-    # The pattern enforces a strict order: [lowercase] + [uppercase] + [symbols] + [digits]
-    pattern = '^[a-z]+[A-Z]+[!@#$^%]+[0-9]+$'
-    return bool(re.search(pattern, pwd))
-
-while True:
-    password = input("Enter your password: ")
-
-    if is_strong_password(password):
-        print("Strong password")
-        break
-    else:
-        print("\n Password is weak, enter another one ")
+Examples:
+Password	Status	Reason
+lowUP#12	✅ Strong	Matches the exact order (lower, upper, symbol, digit).
+12lowUP#	❌ Weak	Wrong order (starts with numbers).
+lowUP12	❌ Weak	Missing special characters.
+LOWlow#12	❌ Weak	Wrong order (starts with uppercase).
